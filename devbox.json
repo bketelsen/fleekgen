@@ -1,0 +1,26 @@
+{
+  "packages": [
+    "go@1.20",
+    "actionlint@1.6.23",
+    "golangci-lint@1.52.2"
+  ],
+  "env": {
+    "PATH": "$PATH:$PWD/dist"
+  },
+  "shell": {
+    "init_hook": [
+      "export \"GOROOT=$(go env GOROOT)\""
+    ],
+    "scripts": {
+      "build": "go build -o dist/fleekgen github.com/bketelsen/fleekgen",
+      "build-linux": "GOOS=linux go build -o dist/fleekgen-linux github.com/bketelsen/fleekgen",
+      "build-linux-amd64": "GOOS=linux GOARCH=amd64 go build -o dist/fleekgen-linux-amd64 github.com/bketelsen/fleekgen",
+      "code": "code .",
+      "lint": "golangci-lint run",
+      "test": "go test -race -cover ./..."
+    }
+  },
+  "nixpkgs": {
+    "commit": "3364b5b117f65fe1ce65a3cdd5612a078a3b31e3"
+  }
+}

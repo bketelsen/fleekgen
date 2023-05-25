@@ -1,0 +1,25 @@
+name: High
+description: A modern experience for modern times
+packages:
+  - git
+  - htop
+  - github-cli
+  - glab
+  - fzf
+  - ripgrep
+  - vscode
+  - lazygit
+  - jq
+  - yq
+  - neovim
+  - neofetch
+  - btop
+  - cheat
+  - bash-preexec
+programs:
+  - exa
+  - bat
+  - atuin
+  - zoxide
+  - direnv
+  - starship

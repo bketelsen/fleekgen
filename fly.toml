@@ -1,0 +1,21 @@
+# fly.toml app configuration file generated for fleekgen on 2023-05-23T10:22:00-04:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "fleekgen"
+primary_region = "mia"
+
+[env]
+  PORT = "8080"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[statics]]
+  guest_path = "/app/static/config"
+  url_prefix = "/config"

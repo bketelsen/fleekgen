@@ -1,0 +1,17 @@
+shell=`ps -p $$ | awk 'NR>1  {print $4}' | sed 's/-//g'`
+SCRIPT_PATH="$HOME/.local/share/devbox/global/current"
+
+#export STARSHIP_CONFIG="${SCRIPT_PATH}/quietnix.toml"
+case $(basename $shell) in
+     "zsh" )
+            {{ .InitZsh }}
+           ;;
+     "bash" )
+            {{ .InitBash }}
+           ;;
+     * )
+           echo "Unsupported shell: '$shell'"
+           ;;
+esac
+
+{{ .Aliases}}

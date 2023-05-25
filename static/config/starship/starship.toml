@@ -1,0 +1,15 @@
+[container]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[hostname]
+ssh_only = false
+format = '[$hostname](bold dimmed green) '
+disabled = false
+ 
+[username]
+format = '[$user@]($style)'
+disabled = false
+show_always = true
