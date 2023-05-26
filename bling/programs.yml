@@ -19,24 +19,20 @@
   - name: starship
     init:
       zsh: |
-        if [ ! -f $HOME/.config/starship.toml ]
-        then
-          curl -fsSL https://devbox.getfleek.dev/config/starship/starship.toml > $HOME/.config/starship.toml
-        fi
         if [[ $TERM != "dumb" && (-z $INSIDE_EMACS || $INSIDE_EMACS == "vterm") ]]; then
           eval "$(starship init zsh)"
         fi
       bash: |
-        if [ ! -f $HOME/.config/starship.toml ]
-        then
-          curl -fsSL https://devbox.getfleek.dev/config/starship/starship.toml > $HOME/.config/starship.toml
-        fi
         eval "$(starship init bash)"
     description: | 
       The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
       https://starship.rs/
   - name: zoxide
+    aliases:
+    - key: cd
+      value: "z"
+      description: zoxide for smart cd
     init:
       zsh: |
         eval "$(zoxide init zsh)"
@@ -69,7 +65,7 @@
           eval "$(atuin init zsh )"
         fi
       bash: |
-        [[ -f "${SCRIPT_PATH}/.devbox/nix/profile/default/share/bash/bash-preexec.sh" ]] && source "${SCRIPT_PATH}/.devbox/nix/profile/default/share/bash/bash-preexec.sh"
+        [[ -f "${DEVBOX_GLOBAL_PREFIX}/share/bash/bash-preexec.sh" ]] && source "${DEVBOX_GLOBAL_PREFIX}/share/bash/bash-preexec.sh"
         eval "$(atuin init bash)"
   - name: exa
     description: | 

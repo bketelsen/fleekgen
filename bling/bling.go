@@ -74,6 +74,9 @@ func (b *Bling) Aliases() string {
 			}
 		}
 	}
+	sb.WriteString("# devbox helpers\n")
+	sb.WriteString("alias dbr='devbox run'\n")
+	sb.WriteString("alias cddevbox='cd $DEVBOX_GLOBAL_ROOT'\n")
 	return sb.String()
 }
 

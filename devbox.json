@@ -17,7 +17,8 @@
       "build-linux-amd64": "GOOS=linux GOARCH=amd64 go build -o dist/fleekgen-linux-amd64 github.com/bketelsen/fleekgen",
       "code": "code .",
       "lint": "golangci-lint run",
-      "test": "go test -race -cover ./..."
+      "test": "go test -race -cover ./...",
+      "serve": "go build -o dist/fleekgen github.com/bketelsen/fleekgen && ./dist/fleekgen"
     }
   },
   "nixpkgs": {

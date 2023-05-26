@@ -16,6 +16,9 @@ packages:
   - btop
   - cheat
   - bash-preexec
+  - tree-sitter
+  - nodejs
+  - python3Full
 programs:
   - exa
   - bat

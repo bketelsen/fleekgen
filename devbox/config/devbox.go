@@ -13,7 +13,8 @@ type Config struct {
 	// Shell configures the devbox shell environment.
 	Shell struct {
 		// InitHook contains commands that will run at shell startup.
-		InitHook []string `json:"init_hook,omitempty"`
+		InitHook []string            `json:"init_hook,omitempty"`
+		Scripts  map[string][]string `json:"scripts,omitempty"`
 	} `json:"shell,omitempty"`
 
 	// Nixpkgs specifies the repository to pull packages from
@@ -28,6 +29,10 @@ func FromBling(b *bling.Bling) *Config {
 	c := &Config{}
 	c.Packages = b.Packages
 	c.Packages = append(c.Packages, b.Programs...)
-	c.Shell.InitHook = []string{". ~/.local/share/devbox/global/default/init.sh"}
+	c.Shell.InitHook = []string{". ${DEVBOX_GLOBAL_ROOT}/init.sh"}
+	c.Env = make(map[string]string)
+	c.Shell.Scripts = scripts
+	c.Env["DEVBOX_GLOBAL_PREFIX"] = "$HOME/.local/share/devbox/global/default/.devbox/nix/profile/default"
+	c.Env["DEVBOX_GLOBAL_ROOT"] = "$HOME/.local/share/devbox/global/current"
 	return c
 }
