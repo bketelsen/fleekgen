@@ -19,9 +19,7 @@
   - name: starship
     init:
       zsh: |
-        if [[ $TERM != "dumb" && (-z $INSIDE_EMACS || $INSIDE_EMACS == "vterm") ]]; then
-          eval "$(starship init zsh)"
-        fi
+        eval "$(starship init zsh)"
       bash: |
         eval "$(starship init bash)"
     description: | 

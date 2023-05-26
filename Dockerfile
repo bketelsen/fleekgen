@@ -17,7 +17,7 @@ COPY . .
 RUN CGO_ENABLED=0 go test -v
 
 # Build the Go app
-RUN go build -o ./out/fleekgen github.com/bketelsen/fleekgen
+RUN go build -buildvcs=false -o ./out/fleekgen github.com/bketelsen/fleekgen
 
 # Start fresh from a smaller image
 FROM alpine:3.9 
