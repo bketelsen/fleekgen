@@ -33,8 +33,18 @@ func (g *Global) Files() (map[string][]byte, error) {
 	if err != nil {
 		return files, err
 	}
+	zshrc, err := hook.Zshrc(g.Bling)
+	if err != nil {
+		return files, err
+	}
+	bashrc, err := hook.Bashrc(g.Bling)
+	if err != nil {
+		return files, err
+	}
 	files["devbox.json"] = dbjson
 	files["init.sh"] = initsh
+	files["zsh/.zshrc"] = zshrc
+	files["bash/.bashrc"] = bashrc
 	return files, nil
 }
 

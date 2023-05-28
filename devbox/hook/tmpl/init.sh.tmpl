@@ -3,10 +3,10 @@ SCRIPT_PATH="$HOME/.local/share/devbox/global/current"
 
 case $(basename $shell) in
      "zsh" )
-            {{ .InitZsh }}
+            . $DEVBOX_GLOBAL_ROOT/zsh/.zshrc
            ;;
      "bash" )
-            {{ .InitBash }}
+            . $DEVBOX_GLOBAL_ROOT/bash/.bashrc
            ;;
      * )
            ;;

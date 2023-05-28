@@ -11,6 +11,8 @@ import (
 
 var (
 	tmplNewBuf = bytes.NewBuffer(make([]byte, 0, 4096))
+	zshBuf     = bytes.NewBuffer(make([]byte, 0, 4096))
+	bashBuf    = bytes.NewBuffer(make([]byte, 0, 4096))
 )
 
 func FromBling(bling *bling.Bling) ([]byte, error) {
@@ -28,5 +30,34 @@ func FromBling(bling *bling.Bling) ([]byte, error) {
 	return tmplNewBuf.Bytes(), nil
 }
 
-//go:embed tmpl/*
+func Zshrc(bling *bling.Bling) ([]byte, error) {
+	var err error
+	zshBuf.Reset()
+	// TODO: cache template parsing
+	tmpl, err := template.ParseFS(tmplFS, "tmpl/zsh/zshrc.tmpl")
+	if err != nil {
+		return []byte{}, err
+	}
+	err = tmpl.Execute(zshBuf, bling)
+	if err != nil {
+		return []byte{}, err
+	}
+	return zshBuf.Bytes(), nil
+}
+func Bashrc(bling *bling.Bling) ([]byte, error) {
+	var err error
+	bashBuf.Reset()
+	// TODO: cache template parsing
+	tmpl, err := template.ParseFS(tmplFS, "tmpl/bash/bashrc.tmpl")
+	if err != nil {
+		return []byte{}, err
+	}
+	err = tmpl.Execute(bashBuf, bling)
+	if err != nil {
+		return []byte{}, err
+	}
+	return bashBuf.Bytes(), nil
+}
+
+//go:embed tmpl/* tmpl/bash/* tmpl/zsh/*
 var tmplFS embed.FS
