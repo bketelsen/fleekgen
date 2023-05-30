@@ -32,4 +32,7 @@ func init() {
 		"curl -fsSL https://devbox.getfleek.dev/config/starship/starship.toml > $HOME/.config/starship.toml",
 		"fi",
 	}
+	scripts["latest-hash"] = []string{
+		"curl -fsSL https://nixos.org/channels/nixos-unstable/git-revision",
+	}
 }
