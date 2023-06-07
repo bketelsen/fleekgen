@@ -3,7 +3,7 @@ description: Low levels of sparkle added to your terminal
 packages:
   - git
   - htop
-  - github-cli
+  - gh
   - glab
 programs:
   - starship

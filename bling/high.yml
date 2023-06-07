@@ -3,7 +3,7 @@ description: A modern experience for modern times
 packages:
   - git
   - htop
-  - github-cli
+  - gh
   - glab
   - fzf
   - ripgrep

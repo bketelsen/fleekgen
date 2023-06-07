@@ -27,8 +27,14 @@ type NixpkgsConfig struct {
 
 func FromBling(b *bling.Bling) *Config {
 	c := &Config{}
-	c.Packages = b.Packages
-	c.Packages = append(c.Packages, b.Programs...)
+	for _, p := range b.Packages {
+
+		c.Packages = append(c.Packages, p+"@latest")
+	}
+	for _, pr := range b.Programs {
+
+		c.Packages = append(c.Packages, pr+"@latest")
+	}
 	c.Shell.InitHook = []string{". ${DEVBOX_GLOBAL_ROOT}/init.sh"}
 	c.Env = make(map[string]string)
 	c.Shell.Scripts = scripts

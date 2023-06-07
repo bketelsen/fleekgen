@@ -3,7 +3,7 @@ description: Just Enough bling
 packages:
   - git
   - htop
-  - github-cli
+  - gh
   - glab
   - fzf
   - ripgrep

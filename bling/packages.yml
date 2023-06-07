@@ -6,7 +6,7 @@
     description: | 
       Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
       https://git-scm.com/
-  - name: github-cli
+  - name: gh
     description: | 
       GitHub CLI brings GitHub to your terminal. Free and open source.
       https://cli.github.com/
