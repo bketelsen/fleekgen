@@ -1,6 +1,6 @@
 {
   "packages": [
-    "go@1.20.3",
+    "go@latest",
     "actionlint@1.6.23",
     "golangci-lint@1.52.2",
     "flyctl@latest"
@@ -24,6 +24,6 @@
     }
   },
   "nixpkgs": {
-    "commit": "e635192892f5abbc2289eaac3a73cdb249abaefd"
+    "commit": "7409480d5c8584a1a83c422530419efe4afb0d19"
   }
 }
