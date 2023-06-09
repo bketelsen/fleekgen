@@ -3,6 +3,7 @@ package main
 import (
 	"archive/tar"
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/bketelsen/fleekgen/bling"
@@ -36,7 +37,7 @@ func main() {
 	app := fiber.New()
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, Devbox!")
+		return c.Redirect("https://getfleek.dev/docs/devbox", http.StatusFound)
 	})
 	app.Get("/none", func(c *fiber.Ctx) error {
 		none := devbox.FromBling(nobling)
