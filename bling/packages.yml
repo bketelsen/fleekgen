@@ -26,10 +26,6 @@
     description: | 
       Code editing. Redefined.
       https://code.visualstudio.com/
-  - name: lazygit
-    description: | 
-      simple terminal UI for git commands
-      https://github.com/jesseduffield/lazygit
   - name: yq
     description: | 
       a lightweight and portable command-line YAML processor. 
