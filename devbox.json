@@ -3,7 +3,8 @@
     "go@latest",
     "actionlint@1.6.23",
     "golangci-lint@1.52.2",
-    "flyctl@latest"
+    "flyctl@latest",
+    "just@latest"
   ],
   "env": {
     "PATH": "$PATH:$PWD/dist"
@@ -17,10 +18,10 @@
       "build-linux": "GOOS=linux go build -o dist/fleekgen-linux github.com/bketelsen/fleekgen",
       "build-linux-amd64": "GOOS=linux GOARCH=amd64 go build -o dist/fleekgen-linux-amd64 github.com/bketelsen/fleekgen",
       "code": "code .",
+      "deploy": "flyctl deploy",
       "lint": "golangci-lint run",
       "serve": "go build -o dist/fleekgen github.com/bketelsen/fleekgen && ./dist/fleekgen",
-      "test": "go test -race -cover ./...",
-      "deploy": "flyctl deploy"
+      "test": "go test -race -cover ./..."
     }
   },
   "nixpkgs": {

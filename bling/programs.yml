@@ -65,14 +65,14 @@
       bash: |
         [[ -f "${DEVBOX_GLOBAL_PREFIX}/share/bash/bash-preexec.sh" ]] && source "${DEVBOX_GLOBAL_PREFIX}/share/bash/bash-preexec.sh"
         eval "$(atuin init bash)"
-  - name: exa
+  - name: eza
     description: | 
       A modern replacement for ‘ls’.
       https://the.exa.website/
     config_lines:
-      - key: programs.exa.enableAliases
+      - key: programs.eza.enableAliases
         value:  true
-      - key: programs.exa.extraOptions
+      - key: programs.eza.extraOptions
         value:  |-
          [
             "--group-directories-first"

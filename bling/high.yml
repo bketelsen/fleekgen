@@ -19,7 +19,7 @@ packages:
   - nodejs
   - python3Full
 programs:
-  - exa
+  - eza
   - bat
   - atuin
   - zoxide
